@@ -1,0 +1,107 @@
+Project_name : "Car price prediction" 
+
+
+# Paths :
+paths:
+  raw_data: "data/raw/raw.csv"
+  interim_data: 
+    drop_missing: "data/interim/drop_missing.csv"
+    feature_engineering: "data/interim/data_after_feature_engineering.csv"
+    variable_encoding: "data/interim/data_after_variable_encoding.csv"
+  processed_data: "data/processed/data_preprocessed.csv"
+
+
+# Spark configuration :
+spark:
+  app_name: "Car Price Prediction"
+  driver_memory: "4g"
+  executor_memory: "4g"
+
+
+
+# Data Processing :
+preprocessing:
+
+  # Columns to drop
+  useless_columns: ["creator", "source", "image_folder", "id", "title"]
+  
+  # Equipment types to extract in feature ingineering :
+  equipment_types:
+    - "Jantes aluminium"
+    - "Airbags"
+    - "Climatisation"
+    - "navigation_system"
+    - "Toit ouvrant"
+    - "Sièges cuir"
+    - "Radar de recul"
+    - "Caméra de recul"
+    - "Vitres électriques"
+    - "ABS"
+    - "ESP"
+    - "Régulateur de vitesse"
+    - "Limiteur de vitesse"
+    - "CD/MP3/Bluetooth"
+    - "Ordinateur de bord"
+    - "Verrouillage centralisé"
+  
+  # Mapping of equipment column names (translate them to english)
+  equipment_mapping:
+    jantes_aluminium: "Alloy_wheels"
+    airbags: "Airbags"
+    climatisation: "Air_conditioning"
+    navigation_system: "Navigation_system"
+    toit_ouvrant: "Sunroof"
+    sieges_cuir: "Leather_seats"
+    radar_de_recul: "Parking_sensors"
+    camera_de_recul: "Rear_camera"
+    vitres_electriques: "Electric_windows"
+    abs: "ABS"
+    esp: "ESP"
+    regulateur_de_vitesse: "Cruise_control"
+    limiteur_de_vitesse: "Speed_limiter"
+    cd_mp3_bluetooth: "CD/MP3/Bluetooth"
+    ordinateur_de_bord: "On_board_computer"
+    verrouillage_centralise: "Central_locking"
+  
+  # Column types :
+  column_types:
+    boolean_columns:
+      - "Alloy_wheels"
+      - "Airbags"
+      - "Air_conditioning"
+      - "Navigation_system"
+      - "Sunroof"
+      - "Leather_seats"
+      - "Parking_sensors"
+      - "Rear_camera"
+      - "Electric_windows"
+      - "ABS"
+      - "ESP"
+      - "Cruise_control"
+      - "Speed_limiter"
+      - "CD/MP3/Bluetooth"
+      - "On_board_computer"
+      - "Central_locking"
+    
+    numeric_columns:
+      - "door_count"
+      - "fiscal_power"
+      - "mileage"
+      - "price"
+      - "year"
+      - "publication_Year"
+      - "publication_Month"
+      - "publication_Day"
+      - "Days_since_posted"
+    
+    categorical_columns:
+      - "brand"
+      - "condition"
+      - "fuel_type"
+      - "model"
+      - "origin"
+      - "first_owner"
+      - "sector"
+      - "seller_city"
+      - "transmission"
+
