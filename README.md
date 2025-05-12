@@ -4,7 +4,6 @@ This project contains a PySpark-based data preprocessing pipeline for car price 
 
 ## Project Structure
 
-
 ```
 car_price_prediction/
 ├── config/                  # Configuration files
