@@ -20,6 +20,7 @@ car_price_prediction/
 └── README.md                # Project documentation
 ```
 
+
 ## Setup
 
 1. Clone the repository
